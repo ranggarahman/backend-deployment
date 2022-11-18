@@ -14,10 +14,7 @@ const bookingRouter = require('./routes/bookingRoutes');
 
 dotenv.config({ path: './config.env' });
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE
 
 mongoose.connect(DB, err => {
   if (err) throw err;

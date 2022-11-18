@@ -13,7 +13,6 @@ const authRouter = require('./routes/authRoute');
 const bookingRouter = require('./routes/bookingRoutes');
 
 dotenv.config({ path: './config.env' });
-const app = require('./app');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',

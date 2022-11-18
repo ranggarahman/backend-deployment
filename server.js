@@ -14,11 +14,17 @@ const bookingRouter = require('./routes/bookingRoutes');
 
 dotenv.config({ path: './config.env' });
 const connectDB = async () => {
+  try {
+   
   const conn  = await mongoose.connect(process.env.DATABASE
-    , err => {
-    if (err) throw err;
-    console.log('connected to MongoDB');
-  });
+    , {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log(`Connected at : ${conn.connection.host}`); 
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 connectDB();

@@ -13,15 +13,15 @@ const authRouter = require('./routes/authRoute');
 const bookingRouter = require('./routes/bookingRoutes');
 
 dotenv.config({ path: './config.env' });
+
 const connectDB = async () => {
   try {
-   
-  const conn  = await mongoose.connect(process.env.DATABASE
-    , {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
-    console.log(`Connected at : ${conn.connection.host}`); 
+    const conn  = await mongoose.connect("mongodb+srv://akbar:akbar123@cluster0.chkyei5.mongodb.net/rental?retryWrites=true"
+      , {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
+      console.log(`Connected at : ${conn.connection.host}`); 
   } catch (error) {
     console.log(error);
   }

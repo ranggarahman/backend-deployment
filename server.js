@@ -13,14 +13,15 @@ const authRouter = require('./routes/authRoute');
 const bookingRouter = require('./routes/bookingRoutes');
 
 dotenv.config({ path: './config.env' });
+const connectDB = async () => {
+  const conn  = await mongoose.connect(process.env.DATABASE
+    , err => {
+    if (err) throw err;
+    console.log('connected to MongoDB');
+  });
+};
 
-const DB = process.env.DATABASE
-
-mongoose.connect(DB, err => {
-  if (err) throw err;
-  console.log('connected to MongoDB');
-});
-
+connectDB();
 
 const app = express();
 const corsOptions = {
